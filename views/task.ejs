@@ -1,0 +1,61 @@
+<div class="row">
+  <div class="col-md-8 offset-md-2">
+    <h3 class="text-center">Tâches à faire : </h3>
+    <div class="d-flex">
+      <ul class="list-group  mx-auto justify-content-center" id="task_ul">
+
+        <%var afaire = 0
+        for (let i = 0; i < tasks.length; i++) {%>
+
+
+          <%if (tasks[i].status === "A_FAIRE") {
+            afaire += 1%>
+              <li class="list-group-item" draggable="true" title="<%=tasks[i].id%>" id="task_li" ondragover="dragOver(event)" ondragstart="dragStart(event)">
+                <div name="task_<%=tasks[i].id%>">
+                  <label class="title align-middle"><%= tasks[i].libelle %></label>
+                  <input class="form-check-input align-middle" type="checkbox" onclick="putRequest(this, <%=tasks[i].id%>)" <% if (tasks[i].status === "FAIT") {%> checked <%}%>>
+                  <input class="btn btn-secondary btn-sm" type="button" value="modifier" onclick="updateRequest(<%=tasks[i].id%>,'<%=tasks[i].libelle%>')">
+                  <input class="btn btn-danger btn-sm" type="button" value="supprimer" onclick="delRequest(<%=tasks[i].id%>)">
+                </div>
+              </li>
+            <%}%>
+
+            <% }
+            if (afaire == 0) {%>
+              <li class="list-group-item">
+                <label class="title align-middle">Pas encore de tâche à faire</label>
+              </li>
+            <%}%>
+          </ul>
+        </div>
+      </div>
+
+    <h3 class="text-center">Tâches terminées</h3>
+    <div class="d-flex">
+        <ul class="list-group  mx-auto justify-content-center">
+
+            <%var faites = 0
+             for (let i = 0; i < tasks.length; i++) {%>
+            <%if (tasks[i].status === "FAIT") {
+              faites += 1%>
+            <li class="list-group-item" draggable="false">
+                <div name="task_<%=tasks[i].id%>">
+                    <label class="title align-middle"><%= tasks[i].libelle %></label>
+                    <input class="form-check-input align-middle" type="checkbox" onclick="putRequest(this, <%=tasks[i].id%>)" <% if (tasks[i].status === "FAIT") {%> checked <%}%>>
+                    <input class="btn btn-secondary btn-sm" type="button" value="modifier" onclick="updateRequest(<%=tasks[i].id%>)">
+                    <input class="btn btn-danger btn-sm" type="button" value="supprimer" onclick="delRequest(<%=tasks[i].id%>)">
+                </div>
+            </li>
+            <%}%>
+            <% }
+            if (faites == 0) {%>
+              <li class="list-group-item">
+                <label class="title align-middle">Pas encore de tâche terminée</label>
+              </li>
+            <%}%>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+</div>

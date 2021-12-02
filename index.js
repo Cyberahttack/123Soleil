@@ -9,7 +9,7 @@ let Tache = require("./Tache")
 
 // On crée le serveur express et on défini le port sur lequel il tournera
 let app = express()
-const PORT = 443
+const PORT = 3000
 
 
 // Configuration du serveur express
@@ -36,12 +36,7 @@ log("Server up and running on port " + PORT)
 app.get('/', (request, response) => {
     log("GET : /todo.ejs")
     // On récupère toutes les tâches actuellement dans la base de données pour les envoyer à la page et qu'il puisse les ajouter dans la vue
-    Tache.getTasks(function(tasks) {
-        for (let i = 0; i < tasks.length; i++) {
-            log("Tasks : " + tasks[i].libelle)
-        }
-        response.render("todo", {tasks})
-    })
+        response.render("todo")
 })
 
 // Cette méthode POST permet de récupérer le titre de la tâche qui va être créée et va l'ajouter à la base de données
