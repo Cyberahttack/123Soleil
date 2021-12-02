@@ -6,15 +6,8 @@
       <title>Cyberahttack's TODO list</title>
   </head>
   <body>
-      <div id="inputdiv">
-          <form action="/" method="post" class="todoform">
-              <% if (locals.titleerr !== undefined) {%>
-                  <p class="error">"Veuillez saisir un titre"</p>
-              <% } %>
-              <input name='title' type="text" placeholder="Entrez le nom de la note">
-              <button type="submit" id="addnote">+</button>
-          </form>
-
-      </div>
+      <form action="/" method="POST">
+          <input type="submit" value="Test Api"/>
+      </form>
   </body>
 </html>
