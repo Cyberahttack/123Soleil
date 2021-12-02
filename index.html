@@ -1,0 +1,73 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<title lang="fr">Tableau de bord du projet</title>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+	<!-- include rpgui -->
+	<link href="../dist/rpgui.css" rel="stylesheet" type="text/css" >
+	<script src="../dist/rpgui.js"></script>
+
+    <style>
+        body
+        {
+            background: #400000;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <style>
+
+        .rpgui-container {
+            height:540px;
+            width:280px;
+        }
+
+    </style>
+
+    <!-- all rpgui elements must be inside the rpgui-content -->
+	<div class="rpgui-content">
+        <!-- simple inputs -->
+				<div class="rpgui-container framed rpgui" style="width:240px;height:700px;">
+					<h1 lang="fr">Tableau des scores</h1>
+
+					<span>#1</span><span class="rpgui-icon sword" style="width:30px;height:30px"></span><span>152 tâches</span>
+
+				</div>
+        <div class="rpgui-container framed rpgui" style="left:240px;width:750px;height:700px;">
+            <h1 lang="fr">Vue d'ensemble du Projet</h1>
+            <hr />
+
+            <span>Nombre de boss tués : </span><span>132</span>
+        </div>
+
+        <!-- Buttons, radio and checkbox -->
+        <div class="rpgui-container framed rpgui" style="left:990px;height:700px;width:400px;overflow:auto">
+            <h1>Quêtes</h1>
+            <hr />
+
+						<div class="rpgui-container framed-golden-2" style="width:346px;height:130px">
+							<!--<div class="icondiv" style="float:left">
+								<div class="rpgui-icon exclamation"></div>
+							</div>
+							<div class="questtextdiv" style="float:left">
+								<h1>Ajouter une description à la carte CARTE</h1>
+								<h3>+ 372 XP</h3>
+							</div>
+						-->
+						<span class="rpgui-icon exclamation"></span>
+							<h1>Ajouter une description à la carte CARTE</h1>
+							<h3>+ 372 XP</h3>
+						</div>
+
+						<div class="rpgui-container framed-golden-2" style="top:230px;width:346px;height:130px">
+							<h1>Ajouter une description à la carte CARTE</h1>
+							<h3>+ 372 XP</h3>
+						</div>
+        </div>
+	</div>
+</body>
