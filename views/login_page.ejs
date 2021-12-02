@@ -5,8 +5,8 @@
     <title>Connexion à GitHub</title>
 
     <!-- include rpgui -->
-  	<link href="../dist/rpgui.css" rel="stylesheet" type="text/css" >
-  	<script src="../dist/rpgui.js"></script>
+  	<link href="/assets/style/rpgui.css" rel="stylesheet" type="text/css" >
+  	<script src="/assets/rpgui.js"></script>
 
       <style>
           body
@@ -20,11 +20,15 @@
       <div class="container" style="padding:230px 300px 70px 300px">
         <div class="inner rpgui-container framed" style="position:relative">
           <h1>Connexion à GitHub</h1>
-          <form action="/views/login_page.html" method="post">
+          <form action="/" method="post">
             <label for="token">Token :</label>
             <input type="text" name="token" placeholder="token"><br>
             <input type="submit" value="Connexion">
           </form>
+          <%if (locals.auth_success && auth_success) {%>
+          <h2>Bienvenue aventurier : <%=cred%></h2>
+          <%}%>
+
         </div>
       </div>
     </div>

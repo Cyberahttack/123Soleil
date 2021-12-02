@@ -37,13 +37,20 @@ log("Server up and running on port " + PORT)
 app.get('/', (request, response) => {
     log("GET : /todo.ejs")
     // On récupère toutes les tâches actuellement dans la base de données pour les envoyer à la page et qu'il puisse les ajouter dans la vue
-        response.render("todo")
+        response.render("login_page")
 })
 
 // Cette méthode POST permet de récupérer le titre de la tâche qui va être créée et va l'ajouter à la base de données
 app.post('/', (request, response) => {
-    core.data.auth()
-    response.render("todo")
+    if (request.body.token != null)
+        core.data.auth(request.body.token).then(login => {
+            if (login != null) {
+                response.render("login_page", {auth_success:true, cred:login})
+            } else {
+                response.render("login_page", {auth_success:false})
+            }
+        })
+
 })
 
 
