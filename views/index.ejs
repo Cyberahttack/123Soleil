@@ -36,11 +36,8 @@
 					<h1 lang="fr">Tableau des scores</h1>
 
 					<hr />
-					<%for (let i = 0; i < score.size; i++) {%>
-						<%=let url = profiles.get(score.get(score.keys()[i]))[1]%>
-						<%=let avatar = profiles.get(score.get(score.keys()[i]))[0]%>
-						<%include("high_score", {rank: i, profileURL: url, avatarURL: avatar, nb_tasks: score.get(score.keys()[i])})%>
-					<%}%>
+
+					<span>#1</span><span class="rpgui-icon sword" style="width:30px;height:30px"></span><span>152 tâches</span>
 
 				</div>
         <div class="rpgui-container framed rpgui" style="left:240px;width:750px;height:700px;">
