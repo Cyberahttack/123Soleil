@@ -8,17 +8,17 @@ var max_monster_hp = 4000;
 var min_monster_hp = 2000;
 
 
-function calculate_xp(cards) {
+function calculate_xp(issues) {
   var calculated_dmg = 0;
-  cards.forEach(card => {
-    if (card.assignees.length > 0) {
+  issues.forEach(issue => {
+    if (issue.assignees.length > 0) {
       calculated_dmg += 40;
     }
-    if (card.labels.length > 0) {
+    if (issue.labels.length > 0) {
       calculated_dmg += 20;
     }
-    if (card.body != null) {
-      if (card.body != "") {
+    if (issue.body != null) {
+      if (issue.body != "") {
         calculated_dmg += 30;
       }
     }
@@ -27,8 +27,8 @@ function calculate_xp(cards) {
   return calculated_dmg;
 }
 
-function find_actual_monster(monsters_hp_list, cards) {
-  var actual_xp = calculate_xp(cards);
+function find_actual_monster(monsters_hp_list, issues) {
+  var actual_xp = calculate_xp(issues);
 
   var i = 0;
   while (actual_xp - monsters_hp_list[i] > 0) {
@@ -61,12 +61,12 @@ function take_xp(actual_xp, xp) {
   return new_xp_value;
 }
 
-function get_monsters_hp_list(project_id) {
-  var rng = seedrandom(project_id);
+function get_monsters_hp_list(repo_id) {
+  var rng = seedrandom(repo_id);
 
   //Calcul pour retrouver les PVs du monstre avec l'id et le lvl du monstre
   var total_dmg = dmg_assignees + dmg_labels + dmg_desc;
-  var total_monsters_hp = cards.length*total_dmg;
+  var total_monsters_hp = issues.length*total_dmg;
   var actual_monsters_total = total_monsters_hp;
   var monsters_hp_array = [];
 
