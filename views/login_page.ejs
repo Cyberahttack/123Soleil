@@ -29,9 +29,27 @@
           <h2>Bienvenue aventurier : <%=cred%></h2>
           <%}%>
 
+          <%if (locals.auth_success === false && !auth_success) {%>
+          <h2>Les identifiants sont invalides</h2>
+          <%}%>
+
+
+
         </div>
+
+        <%if (locals.auth_success && auth_success) {%>
+          <%locals.orgs.forEach((org) => {%>
+            <h2>-------------------- <%=org.orgName%> --------------------</h2>
+            <%if (org.repos !== null) {org.repos.forEach((repo) => {%>
+              <p><%=repo.repName%> : </p>
+              <%if (repo.projectsList != null) {repo.projectsList.forEach((project) => {%>
+                <%- include("object_list.ejs", {name:project.projName}) %>
+              <%})%>
+            <%}})%>
+          <%}})%>
+        <%}%>
+
       </div>
     </div>
-
   </body>
 </html>

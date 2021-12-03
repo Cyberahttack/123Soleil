@@ -15,6 +15,44 @@ exports.data = {
             return null
         }
 
+    },
+
+    getProjects: async function() {
+        let response = await octokit.request("GET /user/orgs")
+
+
+        let orgs_data = response.data
+        let orgs = []
+        for (let i = 0; i < response.data.length; i++) {
+            let rep_response = await octokit.request("GET /orgs/{org}/repos", {
+                org: orgs_data[i].login
+            })
+
+            let repos_data = rep_response.data
+            let repos = []
+
+            for (let j = 0; j < rep_response.data.length; j++) {
+                let proj_response = await octokit.request("GET /repos/{owner}/{repo}/projects", {
+                    owner: orgs_data[i].login,
+                    repo: repos_data[j].name
+                })
+
+                let proj_data = proj_response.data
+                let projects = []
+
+                for (let k = 0; k < proj_response.data.length; k++) {
+                    projects[k] = {projName: proj_data[k].name, projID: proj_data[k].id}
+                }
+
+                repos[j] = {repName: repos_data[j].name, repID: repos_data[j].id, projectsList: projects}
+            }
+
+            orgs[i] = {orgName: orgs_data[i].login, orgID: orgs_data[i].id, repos}
+
+        }
+
+        return orgs
+
     }
 
 

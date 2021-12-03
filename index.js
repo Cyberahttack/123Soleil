@@ -35,22 +35,32 @@ log("Server up and running on port " + PORT)
 
 // Dans notre cas nous n'avons qu'une page web, donc nous n'avons que cette méthode GET qui permet de récupérer la racine
 app.get('/', (request, response) => {
-    log("GET : /todo.ejs")
+    log("GET : /")
     // On récupère toutes les tâches actuellement dans la base de données pour les envoyer à la page et qu'il puisse les ajouter dans la vue
         response.render("login_page")
 })
 
 // Cette méthode POST permet de récupérer le titre de la tâche qui va être créée et va l'ajouter à la base de données
 app.post('/', (request, response) => {
+    log("POST : /")
     if (request.body.token != null)
         core.data.auth(request.body.token).then(login => {
             if (login != null) {
-                response.render("login_page", {auth_success:true, cred:login})
+                core.data.getProjects(login).then(r => {
+                    response.render("login_page", {auth_success:true, cred:login, orgs:r})
+                })
             } else {
                 response.render("login_page", {auth_success:false})
             }
         })
+})
 
+app.post('/dashboard', (request, response) => {
+    log("POST : /dashboard")
+    if (request.body.project != null) {
+        log("Project name : " + request.body.project)
+    }
+    response.render("index", {proj:request.body.project})
 })
 
 

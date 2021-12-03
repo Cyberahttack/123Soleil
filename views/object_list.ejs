@@ -1,19 +1,9 @@
-<!DOCTYPE HTML>
-<html>
-
-<head>
-	<!-- include rpgui -->
-	<link href="../public/style/rpgui.css" rel="stylesheet" type="text/css" >
-	<script src="../public/rpgui.js"></script>
-</head>
-
-<body>
     <!-- all rpgui elements must be inside the rpgui-content -->
 	<div class="rpgui-content">
     <div class="rpgui-container framed">
-      <form class="" action="" method="post">
+      <form class="" action="/dashboard" method="post">
         <div style="width:70%;float:left">
-          <input type="text" disabled value="Bonjour">
+          <input type="text" id="project" disabled value="<%=name%>">
         </div>
         <div style="width:30%;float:right">
           <input type="submit" value="Choisir">
@@ -21,5 +11,4 @@
       </form>
     </div>
   </div>
-</body>
-</html>
+
