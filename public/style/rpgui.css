@@ -970,3 +970,235 @@ ul.rpgui-list-imp {
   left: 40px;
   background-image: url("../img/slider-thumb-golden.png");
   background-size: 100% 100%; }
+
+  /* game div with violet background image*/
+  .rpgui-container.framed-violet {
+    /* border */
+    border-style: solid;
+    border-image-source: url("../img/border-image-violet.png");
+    border-image-repeat: repeat;
+    border-image-slice: 4 4 4 4;
+    border-image-width: 18px;
+    border-width: 15px;
+    padding: 12px;
+    /* internal border */
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    /* background */
+    background: url("../img/background-image-violet.png") repeat repeat;
+    background-clip: padding-box;
+    background-origin: padding-box;
+    background-position: center; }
+          /* game div with violet2 background image*/
+          .rpgui-container.framed-violet-2 {
+            /* border */
+            border-style: solid;
+            border-image-source: url("../img/border-image-violet2.png");
+            border-image-repeat: repeat;
+            border-image-slice: 8 8 8 8;
+            border-image-width: 18px;
+            border-width: 15px;
+            padding: 12px;
+            /* internal border */
+            box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            /* background */
+            background: url("../img/background-image-violet2.png") repeat repeat;
+            background-clip: padding-box;
+            background-origin: padding-box;
+            background-position: center; }
+
+            /*
+            * progress bar styling
+            */
+            /* progress bar container */
+            .rpgui-progress-violet {
+              height: 42px;
+              width: 100%;
+              margin-top: 5px;
+              margin-bottom: 5px;
+              position: relative; }
+
+            /* violet progress bar left edge */
+            .rpgui-progress-left-edge-violet {
+              position: absolute;
+              height: 42px;
+              width: 40px;
+              left: 0px;
+              background-image: url("../img/progress-bar-left-violet.png");
+              background-size: 100% 100%; }
+
+              /* violet progress bar right edge */
+              .rpgui-progress-right-edge-violet {
+                position: absolute;
+                height: 42px;
+                width: 40px;
+                right: 0px;
+                background-image: url("../img/progress-bar-right-violet.png");
+                background-size: 100% 100%; }
+
+                /* violet progress bar background track */
+                .rpgui-progress-track-violet {
+                  position: absolute;
+                  height: 42px;
+                  left: 40px;
+                  right: 40px;
+                  background-image: url("../img/progress-bar-track-violet.png");
+                  background-repeat: repeat-x;
+                  background-size: 36px 100%; }
+                  /* game div with rubis background image*/
+                  .rpgui-container.framed-rubis {
+                    /* border */
+                    border-style: solid;
+                    border-image-source: url("../img/border-image-rubis.png");
+                    border-image-repeat: repeat;
+                    border-image-slice: 4 4 4 4;
+                    border-image-width: 18px;
+                    border-width: 15px;
+                    padding: 12px;
+                    /* internal border */
+                    box-sizing: border-box;
+                    -moz-box-sizing: border-box;
+                    -webkit-box-sizing: border-box;
+                    /* background */
+                    background: url("../img/background-image-rubis.png") repeat repeat;
+                    background-clip: padding-box;
+                    background-origin: padding-box;
+                    background-position: center; }
+                          /* game div with rubis2 background image*/
+                          .rpgui-container.framed-rubis-2 {
+                            /* border */
+                            border-style: solid;
+                            border-image-source: url("../img/border-image-rubis2.png");
+                            border-image-repeat: repeat;
+                            border-image-slice: 8 8 8 8;
+                            border-image-width: 18px;
+                            border-width: 15px;
+                            padding: 12px;
+                            /* internal border */
+                            box-sizing: border-box;
+                            -moz-box-sizing: border-box;
+                            -webkit-box-sizing: border-box;
+                            /* background */
+                            background: url("../img/background-image-rubis2.png") repeat repeat;
+                            background-clip: padding-box;
+                            background-origin: padding-box;
+                            background-position: center; }
+
+                            /*
+                            * progress bar styling
+                            */
+                            /* progress bar container */
+                            .rpgui-progress-rubis {
+                              height: 42px;
+                              width: 100%;
+                              margin-top: 5px;
+                              margin-bottom: 5px;
+                              position: relative; }
+
+                            /* rubis progress bar left edge */
+                            .rpgui-progress-left-edge-rubis {
+                              position: absolute;
+                              height: 42px;
+                              width: 40px;
+                              left: 0px;
+                              background-image: url("../img/progress-bar-left-rubis.png");
+                              background-size: 100% 100%; }
+
+                              /* rubis progress bar right edge */
+                              .rpgui-progress-right-edge-rubis {
+                                position: absolute;
+                                height: 42px;
+                                width: 40px;
+                                right: 0px;
+                                background-image: url("../img/progress-bar-right-rubis.png");
+                                background-size: 100% 100%; }
+
+                                /* rubis progress bar background track */
+                                .rpgui-progress-track-rubis {
+                                  position: absolute;
+                                  height: 42px;
+                                  left: 40px;
+                                  right: 40px;
+                                  background-image: url("../img/progress-bar-track-rubis.png");
+                                  background-repeat: repeat-x;
+                                  background-size: 36px 100%; }
+                                  /* game div with silver background image*/
+                                  .rpgui-container.framed-silver {
+                                    /* border */
+                                    border-style: solid;
+                                    border-image-source: url("../img/border-image-silver.png");
+                                    border-image-repeat: repeat;
+                                    border-image-slice: 4 4 4 4;
+                                    border-image-width: 18px;
+                                    border-width: 15px;
+                                    padding: 12px;
+                                    /* internal border */
+                                    box-sizing: border-box;
+                                    -moz-box-sizing: border-box;
+                                    -webkit-box-sizing: border-box;
+                                    /* background */
+                                    background: url("../img/background-image-silver.png") repeat repeat;
+                                    background-clip: padding-box;
+                                    background-origin: padding-box;
+                                    background-position: center; }
+                                          /* game div with silver2 background image*/
+                                          .rpgui-container.framed-silver-2 {
+                                            /* border */
+                                            border-style: solid;
+                                            border-image-source: url("../img/border-image-silver2.png");
+                                            border-image-repeat: repeat;
+                                            border-image-slice: 8 8 8 8;
+                                            border-image-width: 18px;
+                                            border-width: 15px;
+                                            padding: 12px;
+                                            /* internal border */
+                                            box-sizing: border-box;
+                                            -moz-box-sizing: border-box;
+                                            -webkit-box-sizing: border-box;
+                                            /* background */
+                                            background: url("../img/background-image-silver2.png") repeat repeat;
+                                            background-clip: padding-box;
+                                            background-origin: padding-box;
+                                            background-position: center; }
+
+                                            /*
+                                            * progress bar styling
+                                            */
+                                            /* progress bar container */
+                                            .rpgui-progress-silver {
+                                              height: 42px;
+                                              width: 100%;
+                                              margin-top: 5px;
+                                              margin-bottom: 5px;
+                                              position: relative; }
+
+                                            /* silver progress bar left edge */
+                                            .rpgui-progress-left-edge-silver {
+                                              position: absolute;
+                                              height: 42px;
+                                              width: 40px;
+                                              left: 0px;
+                                              background-image: url("../img/progress-bar-left-silver.png");
+                                              background-size: 100% 100%; }
+
+                                              /* silver progress bar right edge */
+                                              .rpgui-progress-right-edge-silver {
+                                                position: absolute;
+                                                height: 42px;
+                                                width: 40px;
+                                                right: 0px;
+                                                background-image: url("../img/progress-bar-right-silver.png");
+                                                background-size: 100% 100%; }
+
+                                                /* silver progress bar background track */
+                                                .rpgui-progress-track-silver {
+                                                  position: absolute;
+                                                  height: 42px;
+                                                  left: 40px;
+                                                  right: 40px;
+                                                  background-image: url("../img/progress-bar-track-silver.png");
+                                                  background-repeat: repeat-x;
+                                                  background-size: 36px 100%; }
