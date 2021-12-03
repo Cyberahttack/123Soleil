@@ -32,19 +32,7 @@ exports.data = {
             let repos = []
 
             for (let j = 0; j < rep_response.data.length; j++) {
-                let proj_response = await octokit.request("GET /repos/{owner}/{repo}/projects", {
-                    owner: orgs_data[i].login,
-                    repo: repos_data[j].name
-                })
-
-                let proj_data = proj_response.data
-                let projects = []
-
-                for (let k = 0; k < proj_response.data.length; k++) {
-                    projects[k] = {projName: proj_data[k].name, projID: proj_data[k].id}
-                }
-
-                repos[j] = {repName: repos_data[j].name, repID: repos_data[j].id, projectsList: projects}
+                repos[j] = {repName: repos_data[j].name, repID: repos_data[j].id}
             }
 
             orgs[i] = {orgName: orgs_data[i].login, orgID: orgs_data[i].id, repos}
@@ -53,9 +41,35 @@ exports.data = {
 
         return orgs
 
+    },
+
+    getIssues : async function(org, repo) {
+        const response = await octokit.request("GET /repos/{owner}/{repo}/issues", {
+            owner: org,
+            repo: repo
+        })
+
+        let score = new Map()
+        let issues = []
+        let issues_data = response.data
+        for (let i = 0; i < issues_data.length; i++) {
+            let issue = {labels: issues_data[i].labels == null ? 0 : issues_data[i].labels.length, assignees: issues_data[i].assignee == null ? 0 : issues_data[i].assignees.length, milestone: issues_data[i].milestone == null ? false : true}
+            if (issues_data.assignees != null && issues_data.assignees.length > 0) {
+                issues_data.assignees.forEach((ppl) => {
+                    if (score.has(ppl.login))
+                        score.set(ppl.login, score.get(ppl.login)+1)
+                    else
+                        score.set(ppl.login, 1)
+
+                })
+
+            }
+            issues.push(issue)
+
+        }
+
+        return [issues, score]
     }
-
-
 }
 
 

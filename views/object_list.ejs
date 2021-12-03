@@ -1,7 +1,9 @@
     <div class="inner rpgui-container framed" style="position:relative;">
       <form class="" action="/dashboard" method="post">
         <div style="width:70%;float:left">
-          <input type="text" id="project" disabled value="<%=name%>">
+          <input type="text" name="repo" disabled value="<%=name%>">
+            <input type="text" name="project" hidden value="<%=name%>">
+            <input type="text" name="org" hidden value="<%=org%>">
         </div>
         <div style="width:30%;float:right">
           <input type="submit" value="Choisir">

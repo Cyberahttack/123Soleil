@@ -5,7 +5,6 @@ let log = require("./modules/log").log
 let err = require('./modules/log').err
 let body_parser = require("body-parser")
 let session = require("express-session")
-let Tache = require("./Tache")
 let core = require("./modules/core")
 
 // On crée le serveur express et on défini le port sur lequel il tournera
@@ -59,6 +58,12 @@ app.post('/dashboard', (request, response) => {
     log("POST : /dashboard")
     if (request.body.project != null) {
         log("Project name : " + request.body.project)
+        let res = core.data.getIssues(request.body.org, request.body.project).then((r) => {
+            let issues = r[0]
+            let score = r[1]
+
+            log("Issues gathered")
+        })
     }
     response.render("index", {proj:request.body.project})
 })

@@ -42,13 +42,10 @@
             <h2>-------------------- <%=org.orgName%> --------------------</h2>
             <%if (org.repos !== null) {org.repos.forEach((repo) => {%>
               <div>
-                <p><%=repo.repName%> : </p>
-                <%if (repo.projectsList != null) {repo.projectsList.forEach((project) => {%>
-                  <%- include("object_list.ejs", {name:project.projName}) %>
-                <%})%>
+                  <%- include("object_list.ejs", {name:repo.repName, id:repo.repID, org:org.orgName}) %>
               </div>
-            <%}})%>
-          <%}})%>
+            <%})}%>
+          <%})%>
         <%}%>
 
       </div>
