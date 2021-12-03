@@ -41,10 +41,12 @@
           <%locals.orgs.forEach((org) => {%>
             <h2>-------------------- <%=org.orgName%> --------------------</h2>
             <%if (org.repos !== null) {org.repos.forEach((repo) => {%>
-              <p><%=repo.repName%> : </p>
-              <%if (repo.projectsList != null) {repo.projectsList.forEach((project) => {%>
-                <%- include("object_list.ejs", {name:project.projName}) %>
-              <%})%>
+              <div>
+                <p><%=repo.repName%> : </p>
+                <%if (repo.projectsList != null) {repo.projectsList.forEach((project) => {%>
+                  <%- include("object_list.ejs", {name:project.projName}) %>
+                <%})%>
+              </div>
             <%}})%>
           <%}})%>
         <%}%>
