@@ -53,6 +53,39 @@ exports.data = {
 
         return orgs
 
+    },
+
+    getCollaborators: async function() {
+      let response = await octokit.request("GET /user/orgs")
+
+
+      let orgs_data = response.data
+      let orgs = []
+      for (let i = 0; i < response.data.length; i++) {
+          let rep_response = await octokit.request("GET /orgs/{org}/repos", {
+              org: orgs_data[i].login
+          })
+
+          for (let j = 0; j < rep_response.data.length; j++) {
+              let proj_response = await octokit.request("GET /repos/{owner}/{repo}/projects", {
+                  owner: orgs_data[i].login,
+                  repo: rep_response.data[j].name
+              })
+
+              let proj_data = proj_response.data
+              let collaborators = []
+
+              for (let k = 0; k < proj_response.data.length; k++) {
+                  let collab_response = await octokit.request("GET /projects/{project_id}/collaborators", {
+                    project_id: proj_response.data[k].id
+                  })
+                  collaborators[k] = {avatarURL: collab_response.data[k].avatar_url, url: collab_response.data[k].url}
+              }
+          }
+
+      }
+
+      return collaborators
     }
 
 
