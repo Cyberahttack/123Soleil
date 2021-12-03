@@ -50,6 +50,7 @@ exports.data = {
         })
 
         let score = new Map()
+        let profile_Info = new Map()
 
 
         let issues = []
@@ -60,8 +61,10 @@ exports.data = {
                 issues_data[i].assignees.forEach((ppl) => {
                     if (score.has(ppl.login))
                         score.set(ppl.login, score.get(ppl.login)+1)
-                    else
+                    else {
                         score.set(ppl.login, 1)
+                        profile_Info.set(ppl.login, [ppl.avatar_url, ppl.html_url])
+                    }
 
                 })
 
@@ -70,7 +73,7 @@ exports.data = {
 
         }
 
-        return [issues, score]
+        return [issues, score, profile_Info]
     },
 
 

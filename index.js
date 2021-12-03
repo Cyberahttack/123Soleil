@@ -61,12 +61,14 @@ app.post('/dashboard', (request, response) => {
         let res = core.data.getIssues(request.body.org, request.body.project).then((r) => {
             let issues = r[0]
             let score = r[1]
+            let profileInfo = r[2]
 
             const sorted = new Map([...score.entries()].sort((a, b) => b[1] - a[1]));
-            log("Issues gathered")
+
+            response.render("index", {proj:request.body.project, issues:issues, score:score, profiles: profileInfo})
         })
     }
-    response.render("index", {proj:request.body.project})
+
 })
 
 
