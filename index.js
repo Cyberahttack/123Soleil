@@ -62,6 +62,7 @@ app.post('/dashboard', (request, response) => {
             let issues = r[0]
             let score = r[1]
 
+            const sorted = new Map([...score.entries()].sort((a, b) => b[1] - a[1]));
             log("Issues gathered")
         })
     }

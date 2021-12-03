@@ -50,12 +50,14 @@ exports.data = {
         })
 
         let score = new Map()
+
+
         let issues = []
         let issues_data = response.data
         for (let i = 0; i < issues_data.length; i++) {
             let issue = {labels: issues_data[i].labels == null ? 0 : issues_data[i].labels.length, assignees: issues_data[i].assignee == null ? 0 : issues_data[i].assignees.length, milestone: issues_data[i].milestone == null ? false : true}
-            if (issues_data.assignees != null && issues_data.assignees.length > 0) {
-                issues_data.assignees.forEach((ppl) => {
+            if (issues_data[i].assignees != null && issues_data[i].assignees.length > 0) {
+                issues_data[i].assignees.forEach((ppl) => {
                     if (score.has(ppl.login))
                         score.set(ppl.login, score.get(ppl.login)+1)
                     else
@@ -69,7 +71,9 @@ exports.data = {
         }
 
         return [issues, score]
-    }
+    },
+
+
 }
 
 
