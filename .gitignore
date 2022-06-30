@@ -103,3 +103,6 @@ typings/
 
 # Server
 update.sh
+
+# WebStorm files
+.idea
